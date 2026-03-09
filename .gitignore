@@ -1,4 +1,6 @@
 .venv
 media/
+*.sqlite3
+*.bin
 chroma_db/
 *.sqlite3

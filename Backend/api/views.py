@@ -39,8 +39,6 @@ def ask(request):
     if not question:
         return Response({"error": "Question is required"}, status=400)
 
-    answer = ask_question(question)
+    result = ask_question(question)
 
-    return Response({
-        "answer": answer
-    })
+    return Response(result)
