@@ -46,10 +46,22 @@ def ask_question(question):
         persist_directory=PERSIST_DIR,
         embedding_function=embedding
     )
+    # docs = vector_db.similarity_search(question, k=3)
+    # context = "\n".join([doc.page_content for doc in docs])
 
     docs = vector_db.similarity_search(question, k=3)
-
     context = "\n".join([doc.page_content for doc in docs])
+
+    sources = []
+
+    for doc in docs:
+        source = os.path.basename(doc.metadata.get("source", "Unknown document"))
+        page = doc.metadata.get("page", "Unknown page")
+
+        sources.append({
+            "document": source,
+            "page": page
+        })
 
     prompt = f"""
 Answer the question using ONLY the context below.
@@ -66,4 +78,7 @@ If the answer is not present in the context say:
 
     response = llm.invoke(prompt)
 
-    return response
+    return {
+    "answer": response,
+    "sources": sources
+}
