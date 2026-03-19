@@ -18,7 +18,9 @@ embedding = HuggingFaceEmbeddings(
 llm = Ollama(model="llama3")
 
 
-def process_pdf(file_path):
+def process_pdf(file_path, session_id):
+
+    persist_dir = f"sessions/{session_id}/chroma_db"
 
     loader = PyPDFLoader(file_path)
     documents = loader.load()
@@ -33,21 +35,20 @@ def process_pdf(file_path):
     vector_db = Chroma.from_documents(
         documents=chunks,
         embedding=embedding,
-        persist_directory=PERSIST_DIR
+        persist_directory=persist_dir
     )
 
     vector_db.persist()
 
 
 
-def ask_question(question):
+def ask_question(question, session_id):
 
+    persist_dir = f"sessions/{session_id}/chroma_db"
     vector_db = Chroma(
-        persist_directory=PERSIST_DIR,
+        persist_directory=persist_dir,
         embedding_function=embedding
     )
-    # docs = vector_db.similarity_search(question, k=3)
-    # context = "\n".join([doc.page_content for doc in docs])
 
     docs = vector_db.similarity_search(question, k=3)
     context = "\n".join([doc.page_content for doc in docs])
