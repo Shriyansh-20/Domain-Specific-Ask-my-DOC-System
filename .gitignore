@@ -5,3 +5,4 @@ media/
 chroma_db/
 *.sqlite3
 venv
+sessions
