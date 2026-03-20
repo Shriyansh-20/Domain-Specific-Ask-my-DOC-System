@@ -1,4 +1,4 @@
-# Ask My DOC - Domain-Specific Document QA System
+# Ask My DOC - Domain-Specific Document QA System - With Citations!
 
 <div align="center">
 
