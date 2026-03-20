@@ -37,16 +37,37 @@ Ask My DOC **transforms this workflow** by enabling:
 - 🔒 Session-isolated document processing for data privacy
 - ⚡ Real-time interaction with instant results
 
+### 🔄 How It Differs from Traditional RAG Systems
+
+While traditional RAG implementations focus on retrieval accuracy, **Ask My DOC introduces production-grade features** specifically designed for real-world transparency and compliance:
+
+- **Transparent Evidence Mechanism**: Every answer includes clickable source citations with document names and exact page numbers—traditional RAG often lacks this critical transparency layer
+- **Session-Wise Data Isolation**: Each user's documents are stored in completely isolated vector databases, enabling secure multi-user concurrent usage without any data leakage
+- **Metadata Preservation**: Unlike generic RAG systems, we preserve full document context (filename, page numbers) for audit trails and regulatory compliance
+- **Local-First Architecture**: Runs entirely on-premises with Ollama, eliminating privacy concerns and API costs of cloud-based RAG solutions
+- **Optimized Chunking Strategy**: Carefully tuned 500-character chunks with 50-character overlap—balancing context preservation for better answers with vector precision for faster retrieval
+- **Interactive Source Verification**: Users can expand evidence panels to review source snippets, enabling independent fact-checking and building institutional trust
+
 ---
 
 ## 🚀 Key Features
 
-### 1. **Semantic Search with Vector Embeddings** 🧠
+### 1. **Evidence-Based Answers with Source Citations** 📍
+- Every answer includes **document sources** showing where information came from
+- Users can see:
+  - Original document filename
+  - Exact page numbers
+  - Contextual content snippets
+- Click "Show Evidence" button to expand and review sources
+- Builds institutional trust through complete transparency
+- Enables fact-checking and regulatory compliance
+
+### 2. **Semantic Search with Vector Embeddings** 🧠
 - Uses **HuggingFace's `all-MiniLM-L6-v2`** embeddings model for semantic understanding
 - Embeddings capture the meaning and context of text, not just keywords
 - Example: Query "How much did the company earn?" finds answers in "Revenue generated was $5M"
 
-### 2. **Retrieval-Augmented Generation (RAG)** 🔄
+### 3. **Retrieval-Augmented Generation (RAG)** 🔄
 - Combines the power of **vector search** with **large language models**
 - Process:
   1. Convert user query to embeddings
@@ -56,21 +77,12 @@ Ask My DOC **transforms this workflow** by enabling:
 - Significantly reduces hallucinations compared to pure LLM responses
 - Answers are always backed by actual document content
 
-### 3. **Session-Wise Document Management** 📁
+### 4. **Session-Wise Document Management** 📁
 - Each user session gets a **unique, isolated vector database**
 - Documents uploaded in one session are completely separate from others
 - Built-in **data isolation** for privacy and organization
 - Session IDs enable multi-user concurrent usage
 - Efficient disk space management with per-session storage
-
-### 4. **Evidence-Based Answers with Source Citations** 📍
-- Every answer includes **document sources** showing where information came from
-- Users can see:
-  - Original document filename
-  - Exact page numbers
-  - Contextual content snippets
-- Click "Show Evidence" button to expand and review sources
-- Builds trust through transparency
 
 ### 5. **Interactive Chat Interface** 💬
 - Modern, responsive React frontend
