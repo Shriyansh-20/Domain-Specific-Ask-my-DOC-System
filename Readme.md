@@ -44,7 +44,6 @@ Ask My DOC **transforms this workflow** by enabling:
 ### 1. **Semantic Search with Vector Embeddings** 🧠
 - Uses **HuggingFace's `all-MiniLM-L6-v2`** embeddings model for semantic understanding
 - Embeddings capture the meaning and context of text, not just keywords
-- Can find relevant content even when exact keywords don't match
 - Example: Query "How much did the company earn?" finds answers in "Revenue generated was $5M"
 
 ### 2. **Retrieval-Augmented Generation (RAG)** 🔄
@@ -254,7 +253,7 @@ ollama serve
 
 ---
 
-## 🔐 Security & Privacy
+##  Security & Privacy
 
 - **Session Isolation**: Each user's documents are completely separate
 - **Local LLM**: Ollama runs locally - no data sent to external servers
@@ -263,7 +262,7 @@ ollama serve
 
 ---
 
-## 🚀 Performance Features
+## Performance Features
 
 | Feature | Benefit |
 |---------|---------|
@@ -275,7 +274,7 @@ ollama serve
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 The system excels because:
 
@@ -287,7 +286,7 @@ The system excels because:
 
 ---
 
-## 🙋 FAQ
+##  FAQ
 
 **Q: Can this work with very large documents (1000+ pages)?**
 A: Yes! Chunk splitting ensures large documents are processed efficiently. Performance scales linearly with document size.
@@ -310,24 +309,16 @@ A: Currently uses session IDs. Can be extended with Django's auth system.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
----
-
-## 👥 Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ---
 
-## 📧 Contact & Support
-
-For questions, issues, or suggestions, please open an issue on GitHub.
+## Author
+Shriyansh Sinha
 
 ---
 
 <div align="center">
 
 ### ⭐ If you find this project helpful, please star it!
-
-**Built with ❤️ for intelligent document interaction**
 
 </div>
